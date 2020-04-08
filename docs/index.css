@@ -5,3 +5,11 @@
     max-width: 90%;
     padding: 25px 8px;
 }
+.bg{
+    background: url("./5ab30ec242704.jpg");
+    background-size: 100% 100%;
+}
+.cover{
+    background-size:100% !important;
+    background-repeat: no-repeat!important;
+}
