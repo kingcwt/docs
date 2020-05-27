@@ -1,4 +1,4 @@
-## TypeScript
+# TypeScript
 
 `本文章只是为了加深本人对TS的理解/如果想学TS请跳转到官方文档=>`
 <a href="https://ts.xcatliu.com">官方文档</a>
