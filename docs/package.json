@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"docsify serve"
+    "s":"docsify serve"
   },
   "keywords": [],
   "author": "",
