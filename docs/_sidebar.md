@@ -15,3 +15,4 @@
 
 **项目宝库**  
 * [Treasury](/treasury.md)
+* [企微H5分享](/xmbk/weixinh5.md)
