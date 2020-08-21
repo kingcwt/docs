@@ -1,27 +1,46 @@
 # 企业微信 h5 页面分享功能
 
-- 需求：
-  老板说要把做的落地页在企业微信浏览器打开分享出去要修改卡片显示的内容
-
-* 默认显示的是这样：
-
-![qiyeweixinqian](./img/qiweiold.jpg)
-
+- - - -  - -
 #### 调用企业微信 sdk 实现 h5 分享功能
+- 我们要搞定分享 需要实现以下两条  
+> 1. 必须是企业管理员权限  
+> 2. 我们一定是要在h5页面配置wx.config才行的  
+> 3. 启个后台服务 搞定config以下参数  
 
-- 官方 api : https://open.work.weixin.qq.com/api/doc/90000/90136/90512
-  > 我的需求只是修改分享卡片的内容
 
-详细过程如下：
+```js
 
-###### 第一步 `获取企业ID`
+wx.config({
+    beta: true,// 必须这么写，否则wx.invoke调用形式的jsapi会有问题
+    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: '', // 必填，企业微信的corpID
+    timestamp: , // 必填，生成签名的时间戳
+    nonceStr: '', // 必填，生成签名的随机串
+    signature: '',// 必填，签名，见 附录-JS-SDK使用权限签名算法
+    jsApiList: [] // 必填，需要使用的JS接口列表，凡是要调用的接口都需要传进来
+});
 
-- 1 在企业微信分享你必须有企业的管理员登录企微后台找到企业 id
+```
+
+> 打开官方 api : https://open.work.weixin.qq.com/api/doc/90000/90136/90514  
+
+
+
+-  - - - - - -- - -  
+#### 登录企业微信后台要做的事情  
+######  `获取企业ID`(appId)  
+
   > 登录企业微信后台 -> 点击我的企业 -> 最下面会显示企业 ID
 
-###### 第二步 `获取Secret`
+######  `获取Secret`
 
 > 点击应用管理 -> 创建自建应用 -> 拿到 Secret
+
+###### 配置可信域名  
+ 在企微后台找到你自建的应用在最下面有个·网页授权及JS-SDK·配置你当前的落地页地址：
+ >1  比如：https://baidu.com/ => baidu.com  
+ >2  点击下载txt文件 放到你的落地页根目录以下与index.html同级  
+ >3  然后点击启动就可以了（一定是把txt文件放到线上以后点击才行）  
 
 ###### 接下来就是写前端代码：
 
@@ -237,5 +256,5 @@ exports.weixinRandomApi = async (req, h) => {
 ```
 -  最后 放到线上的时候 在企微浏览器打开落地页链接 分享给微信好友 分享卡片内容就修改成功了
 
-![qiyeweixinhou](./img/qiweiyes.jpg)
+![qiyeweixinhou](./xmbk/img/qiweiyes.jpg)
 

@@ -1,6 +1,5 @@
-# Treasury  
 
-## 粘贴复制功能
+# 粘贴复制功能
 
 #### 1 原生JS复制粘贴(execCommand)
 
